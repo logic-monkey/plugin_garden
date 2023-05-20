@@ -14,6 +14,10 @@ config/name="Plugin Garden"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/simple_state_machine/plugin.cfg", "res://addons/virtual_gamepad/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
