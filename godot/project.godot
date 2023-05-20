@@ -11,12 +11,28 @@ config_version=5
 [application]
 
 config/name="Plugin Garden"
+run/main_scene="res://monkey/test.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="ehe"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+_INIT="*res://addons/basic_init/initializer.gd"
+_FADE="*res://addons/scene_fader/fader.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/simple_state_machine/plugin.cfg", "res://addons/virtual_gamepad/plugin.cfg")
+enabled=PackedStringArray("res://addons/simple_state_machine/plugin.cfg", "res://addons/virtual_gamepad/plugin.cfg", "res://addons/basic_init/plugin.cfg", "res://addons/scene_fader/plugin.cfg")
 
 [rendering]
 
