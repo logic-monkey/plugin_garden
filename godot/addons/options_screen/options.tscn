@@ -1,0 +1,115 @@
+[gd_scene load_steps=4 format=3 uid="uid://dckbp1027e5kt"]
+
+[ext_resource type="Theme" uid="uid://ck8s4yjk5v5v" path="res://addons/atkinson/Atkinson.tres" id="1_ea0yl"]
+[ext_resource type="Script" path="res://addons/options_screen/options.gd" id="1_xstgr"]
+[ext_resource type="FontFile" uid="uid://bysqtf667q06r" path="res://addons/atkinson/AtkinsonHyperlegible-Bold.ttf" id="2_wn17t"]
+
+[node name="Options" type="CanvasLayer"]
+process_mode = 3
+layer = 120
+script = ExtResource("1_xstgr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ea0yl")
+color = Color(0, 0, 0, 0.698039)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wn17t")
+theme_override_font_sizes/font_size = 50
+text = "Options"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="vol_master" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="vol_music" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="Label4" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Effects Volume"
+horizontal_alignment = 1
+
+[node name="vol_effects" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+
+[node name="fullscreen_toggle" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_pressed_color = Color(0.964706, 0.913725, 0.380392, 1)
+toggle_mode = true
+text = "Toggle Fullscreen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="back" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="title" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Title Screen"
+
+[node name="exit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit Game"
+
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/vol_master" to="." method="_on_vol_master_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/vol_music" to="." method="_on_vol_music_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/vol_effects" to="." method="_on_vol_effects_value_changed"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/fullscreen_toggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]

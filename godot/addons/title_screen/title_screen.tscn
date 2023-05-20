@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://brvo67i7xbuov"]
+
+[ext_resource type="Theme" uid="uid://ck8s4yjk5v5v" path="res://addons/atkinson/Atkinson.tres" id="1_8m1jn"]
+[ext_resource type="Script" path="res://addons/title_screen/title_screen.gd" id="2_syvug"]
+[ext_resource type="FontFile" uid="uid://bysqtf667q06r" path="res://addons/atkinson/AtkinsonHyperlegible-Bold.ttf" id="3_vnkno"]
+[ext_resource type="Texture2D" uid="uid://bmbxcijmfiry6" path="res://addons/title_screen/rainbow rose.png" id="4_vj7yl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqgcg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j12nq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vep3r"]
+
+[node name="Title Screen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8m1jn")
+color = Color(0.309804, 0.305882, 0.454902, 1)
+script = ExtResource("2_syvug")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vnkno")
+theme_override_font_sizes/font_size = 100
+text = "Plugin Garden"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_vj7yl")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 5
+
+[node name="start" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kqgcg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j12nq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vep3r")
+text = "Start"
+flat = true
+
+[node name="options" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kqgcg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j12nq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vep3r")
+text = "Options"
+flat = true
+
+[node name="credits" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kqgcg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j12nq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vep3r")
+text = "Credits"
+flat = true
+
+[node name="exit" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kqgcg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j12nq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vep3r")
+text = "Exit"
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "Random Notes can go here"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]

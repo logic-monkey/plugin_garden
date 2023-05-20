@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ck8s4yjk5v5v"]
+
+[ext_resource type="FontFile" uid="uid://bysqtf667q06r" path="res://addons/atkinson/AtkinsonHyperlegible-Bold.ttf" id="1_4qolf"]
+[ext_resource type="Texture2D" uid="uid://c1dur35v73m8u" path="res://addons/atkinson/knob.png" id="1_163qb"]
+[ext_resource type="FontFile" uid="uid://crsaqswmhkumb" path="res://addons/atkinson/AtkinsonHyperlegible-Regular.ttf" id="1_deh5b"]
+[ext_resource type="Texture2D" uid="uid://t3tfi3he7es6" path="res://addons/atkinson/knob disabled.png" id="2_dkmxg"]
+[ext_resource type="Texture2D" uid="uid://j6flg7t5gqho" path="res://addons/atkinson/knob highlit.png" id="3_kw16s"]
+
+[resource]
+default_font = ExtResource("1_deh5b")
+default_font_size = 30
+Button/colors/font_color = Color(0.839216, 0.85098, 0.835294, 1)
+Button/colors/font_disabled_color = Color(0.478431, 0.478431, 0.478431, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0.839216, 0.85098, 0.835294, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.839216, 0.85098, 0.835294, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 34
+Button/fonts/font = ExtResource("1_4qolf")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = ExtResource("1_163qb")
+HSlider/icons/grabber_disabled = ExtResource("2_dkmxg")
+HSlider/icons/grabber_highlight = ExtResource("3_kw16s")
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = null
+HSlider/styles/grabber_area_highlight = null
+HSlider/styles/slider = null
