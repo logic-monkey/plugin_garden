@@ -6,6 +6,11 @@ var EFFECTSVOL = "effects volume %s" % NAME
 var MUSICVOL = "music volume %s" % NAME
 var FULLSCREEN = "window mode %s" % NAME
 
+var CB_MODE = "colorblind mode %s" % NAME
+var CB_INTENSITY = "colorblind intensity %s" % NAME
+
+@onready var cb_menu = %colorblind_type.get_popup() as PopupMenu
+
 var is_loading := false
 func _ready():
 	visible = false
@@ -28,8 +33,30 @@ func _ready():
 		%fullscreen_toggle.button_pressed = _INIT.data[FULLSCREEN] == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	else:
 		%fullscreen_toggle.button_pressed = false
+	if _INIT.data.has(CB_MODE):
+		set_cb_mode(_INIT.data[CB_MODE])
+	else:
+		set_cb_mode(0)
+	if _INIT.data.has(CB_INTENSITY):
+		%colorblind_intensity.value = _INIT.data[CB_INTENSITY] * 100
+	else:
+		%colorblind_intensity.value = 0
+		
 	is_loading = false
 	_INIT.Save()
+	await get_tree().process_frame
+	cb_menu.id_pressed.connect(set_cb_mode)
+	
+	
+signal colorblind_changed
+func set_cb_mode(mode):
+	mode = clampi(mode,0,2)
+#	if not _INIT.data.has(CB_MODE) or _INIT.data[CB_MODE] != mode:
+	_INIT.data[CB_MODE] = mode
+	%colorblind_type.text = cb_menu.get_item_text(mode)
+	emit_signal("colorblind_changed")
+	if not is_loading: _INIT.Save()
+	
 
 
 var pause_cache = false
@@ -99,3 +126,9 @@ func _on_exit_pressed():
 func _on_title_pressed():
 	dismiss()
 	_FADE.FadeTo("res://addons/title_screen/title_screen.tscn")
+
+
+func _on_colorblind_intensity_value_changed(value):
+	_INIT.data[CB_INTENSITY] = float(value)/100.0
+	emit_signal("colorblind_changed")
+	if not is_loading: _INIT.Save()
