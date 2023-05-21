@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://qcm58m053fix"
+path="res://.godot/imported/oath reborn by youfulca.ogg-7e159c0488b1f11b795fa900ff8c8210.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/title_screen/oath reborn by youfulca.ogg"
+dest_files=["res://.godot/imported/oath reborn by youfulca.ogg-7e159c0488b1f11b795fa900ff8c8210.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

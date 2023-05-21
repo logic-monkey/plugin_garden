@@ -32,7 +32,7 @@ func SetFadeVolume(v:float):
 	
 func SwitchToSong(song,fade_time:float=0.0):
 	if song is String:
-		if song == stream.resource_path: return
+		if stream and song == stream.resource_path: return
 		LoadDisc(song)
 		await song_loaded
 		if %disc.song == null: return

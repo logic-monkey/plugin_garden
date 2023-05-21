@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://dci14m16r8eku"]
+
+[ext_resource type="Theme" uid="uid://ck8s4yjk5v5v" path="res://addons/atkinson/Atkinson.tres" id="1_r15kd"]
+[ext_resource type="Script" path="res://addons/title_screen/credits.gd" id="2_63qlh"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_q8wco"]
+action = &"ui_accept"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_kjevs"]
+events = [SubResource("InputEventAction_q8wco")]
+
+[node name="credits" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r15kd")
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_63qlh")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Plugin Garden by E. Darwin Hartshorn"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "MUSIC"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Featuring \"Oath Location ~ Wound Reunion\" by YouFulca (youfulca.com)"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "GODOT GAME ENGINE LICENSE"
+horizontal_alignment = 1
+
+[node name="license" type="Label" parent="ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="title" type="Button" parent="ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+shortcut = SubResource("Shortcut_kjevs")
+text = "Return to Title"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/title" to="." method="_on_title_pressed"]

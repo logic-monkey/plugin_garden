@@ -11,14 +11,14 @@ signal faded_in
 func FadeOut():
 	visible = true
 	var tween = get_tree().create_tween()
-	tween.tween_property($ColorRect, "color", Color.BLACK, time_to_fade)\
+	tween.tween_property($ColorRect, "modulate", Color.WHITE, time_to_fade)\
 	.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	emit_signal("faded_out")
 	
 func FadeIn():
 	var tween = get_tree().create_tween()
-	tween.tween_property($ColorRect, "color", Color.TRANSPARENT, time_to_fade)\
+	tween.tween_property($ColorRect, "modulate", Color.TRANSPARENT, time_to_fade)\
 	.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	visible = false

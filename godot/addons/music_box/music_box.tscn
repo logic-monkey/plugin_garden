@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://addons/music_box/disc.gd" id="2_d0dgg"]
 
 [node name="Music Box" type="AudioStreamPlayer"]
+process_mode = 3
 bus = &"music box"
 script = ExtResource("1_eu8ot")
 
