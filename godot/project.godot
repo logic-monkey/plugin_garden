@@ -19,9 +19,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-_INIT="*res://addons/basic_init/initializer.gd"
 _FADE="*res://addons/scene_fader/fader.tscn"
 _OPTIONS="*res://addons/options_screen/options.tscn"
+_INIT="*res://addons/basic_init/initializer.gd"
+_MUSIC="*res://addons/music_box/music_box.tscn"
 
 [display]
 
@@ -33,7 +34,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/simple_state_machine/plugin.cfg", "res://addons/virtual_gamepad/plugin.cfg", "res://addons/basic_init/plugin.cfg", "res://addons/scene_fader/plugin.cfg", "res://addons/atkinson/plugin.cfg", "res://addons/title_screen/plugin.cfg", "res://addons/options_screen/plugin.cfg")
+enabled=PackedStringArray("res://addons/simple_state_machine/plugin.cfg", "res://addons/virtual_gamepad/plugin.cfg", "res://addons/scene_fader/plugin.cfg", "res://addons/atkinson/plugin.cfg", "res://addons/title_screen/plugin.cfg", "res://addons/options_screen/plugin.cfg", "res://addons/basic_init/plugin.cfg", "res://addons/music_box/plugin.cfg")
 
 [rendering]
 

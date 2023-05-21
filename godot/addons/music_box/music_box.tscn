@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://h4d7xvwu4gyh"]
+
+[ext_resource type="Script" path="res://addons/music_box/music_box.gd" id="1_eu8ot"]
+[ext_resource type="Script" path="res://addons/music_box/disc.gd" id="2_d0dgg"]
+
+[node name="Music Box" type="AudioStreamPlayer"]
+bus = &"music box"
+script = ExtResource("1_eu8ot")
+
+[node name="disc" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_d0dgg")

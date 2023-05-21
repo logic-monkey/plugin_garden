@@ -34,7 +34,8 @@ func _ready():
 
 var pause_cache = false
 @export var time_to_tween = 0.25
-func summon():
+func summon(title := false):
+	%title.visible = not title
 	visible = true
 	var tree = get_tree()
 	pause_cache = tree.paused
@@ -88,3 +89,13 @@ func _on_fullscreen_toggle_toggled(button_pressed):
 	_INIT.data[FULLSCREEN] = DisplayServer.window_get_mode()
 	if not is_loading: _INIT.Save()
 	
+
+
+func _on_exit_pressed():
+	get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	get_tree().quit()
+
+
+func _on_title_pressed():
+	dismiss()
+	_FADE.FadeTo("res://addons/title_screen/title_screen.tscn")

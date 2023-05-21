@@ -113,3 +113,5 @@ text = "Exit Game"
 [connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/vol_effects" to="." method="_on_vol_effects_value_changed"]
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/fullscreen_toggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/title" to="." method="_on_title_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/exit" to="." method="_on_exit_pressed"]
