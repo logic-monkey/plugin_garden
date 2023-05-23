@@ -25,65 +25,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+use_hidden_tabs_for_min_size = true
+
+[node name="Screen and Sound" type="PanelContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_wn17t")
 theme_override_font_sizes/font_size = 50
 text = "Options"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 text = "Master Volume"
 horizontal_alignment = 1
 
-[node name="vol_master" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="vol_master" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
 
-[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 text = "Music Volume"
 horizontal_alignment = 1
 
-[node name="vol_music" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="vol_music" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
 
-[node name="Label4" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 text = "Effects Volume"
 horizontal_alignment = 1
 
-[node name="vol_effects" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="vol_effects" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 value = 50.0
 
-[node name="HSeparator2" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 
-[node name="fullscreen_toggle" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="fullscreen_toggle" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -91,18 +105,18 @@ theme_override_colors/font_pressed_color = Color(0.964706, 0.913725, 0.380392, 1
 toggle_mode = true
 text = "Toggle Fullscreen"
 
-[node name="HSeparator3" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox/HBoxContainer2"]
 layout_mode = 2
-text = "ColorBlind Filter: "
+text = "Colorblindness Adjustment: "
 
-[node name="colorblind_type" type="MenuButton" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="colorblind_type" type="MenuButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Protonopia"
@@ -114,14 +128,66 @@ popup/item_1/id = 1
 popup/item_2/text = "Tritanopia"
 popup/item_2/id = 2
 
-[node name="colorblind_intensity" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="colorblind_intensity" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HSeparator4" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox"]
 layout_mode = 2
+
+[node name="Controls" type="PanelContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+text = "This Controls menu doesn't do anything right now, alas..."
+autowrap_mode = 3
+
+[node name="Scroll" type="ScrollContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer/Scroll/VBox"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="action_customizer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer/Scroll/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer/Scroll/VBox/action_customizer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Up:"
+
+[node name="action" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer/Scroll/VBox/action_customizer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "up"
+horizontal_alignment = 1
+
+[node name="change" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer/Scroll/VBox/action_customizer"]
+layout_mode = 2
+text = "Change"
+
+[node name="HSeparator2" type="HSeparator" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/VBoxContainer/Scroll/VBox"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -143,11 +209,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Exit Game"
 
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/vol_master" to="." method="_on_vol_master_value_changed"]
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/vol_music" to="." method="_on_vol_music_value_changed"]
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/vol_effects" to="." method="_on_vol_effects_value_changed"]
-[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/fullscreen_toggle" to="." method="_on_fullscreen_toggle_toggled"]
-[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/colorblind_intensity" to="." method="_on_colorblind_intensity_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox/vol_master" to="." method="_on_vol_master_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox/vol_music" to="." method="_on_vol_music_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox/vol_effects" to="." method="_on_vol_effects_value_changed"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox/fullscreen_toggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Screen and Sound/VBox/colorblind_intensity" to="." method="_on_colorblind_intensity_value_changed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/title" to="." method="_on_title_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/exit" to="." method="_on_exit_pressed"]
