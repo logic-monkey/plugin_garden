@@ -1,12 +1,12 @@
 extends Node
 
 var data = {}
-const FILE = "user://init.txt"
-
 var NAME = ProjectSettings["application/config/name"]
-var POSITION = "window position %s" % NAME
-var SIZE = "window size %s" % NAME
-var MODE = "window mode %s" % NAME
+var FILE = "user://%s init.txt" % NAME
+
+var POSITION = "window position"
+var SIZE = "window size"
+var MODE = "window mode"
 
 func Save():
 	data[MODE] = DisplayServer.window_get_mode()

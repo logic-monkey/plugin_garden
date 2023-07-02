@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c15yp8euepl5i"]
+
+[ext_resource type="Script" path="res://addons/soft_mouse/soft_mouse.gd" id="1_qauwf"]
+[ext_resource type="PackedScene" uid="uid://84lckq5wlf4v" path="res://addons/soft_mouse/cursors/pointer.tscn" id="2_544ky"]
+
+[node name="soft_mouse" type="CanvasLayer"]
+process_mode = 3
+layer = 127
+script = ExtResource("1_qauwf")
+
+[node name="position" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="pointer" parent="position" instance=ExtResource("2_544ky")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="fadeout"]

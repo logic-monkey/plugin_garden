@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-var NAME = ProjectSettings["application/config/name"]
-var MASTERVOL = "master volume %s" % NAME
-var EFFECTSVOL = "effects volume %s" % NAME
-var MUSICVOL = "music volume %s" % NAME
-var FULLSCREEN = "window mode %s" % NAME
+#var NAME = ProjectSettings["application/config/name"]
+var MASTERVOL = "master volume" 
+var EFFECTSVOL = "effects volume"
+var MUSICVOL = "music volume"
+var FULLSCREEN = "window mode"
 
-var CB_MODE = "colorblind mode %s" % NAME
-var CB_INTENSITY = "colorblind intensity %s" % NAME
+var CB_MODE = "colorblind mode"
+var CB_INTENSITY = "colorblind intensity" 
 
 @onready var cb_menu = %colorblind_type.get_popup() as PopupMenu
 

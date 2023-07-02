@@ -25,6 +25,7 @@ _INIT="*res://addons/basic_init/initializer.gd"
 _MUSIC="*res://addons/music_box/music_box.tscn"
 _SCREEN="*res://addons/screen_shader/screen_shader.tscn"
 _IMP="*res://addons/input_imp/imp.gd"
+_MOUSE="*res://addons/soft_mouse/soft_mouse.tscn"
 
 [display]
 
@@ -36,7 +37,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/simple_state_machine/plugin.cfg", "res://addons/virtual_gamepad/plugin.cfg", "res://addons/scene_fader/plugin.cfg", "res://addons/atkinson/plugin.cfg", "res://addons/title_screen/plugin.cfg", "res://addons/options_screen/plugin.cfg", "res://addons/basic_init/plugin.cfg", "res://addons/music_box/plugin.cfg", "res://addons/screen_shader/plugin.cfg", "res://addons/input_imp/plugin.cfg")
+enabled=PackedStringArray("res://addons/simple_state_machine/plugin.cfg", "res://addons/virtual_gamepad/plugin.cfg", "res://addons/scene_fader/plugin.cfg", "res://addons/atkinson/plugin.cfg", "res://addons/title_screen/plugin.cfg", "res://addons/options_screen/plugin.cfg", "res://addons/basic_init/plugin.cfg", "res://addons/music_box/plugin.cfg", "res://addons/screen_shader/plugin.cfg", "res://addons/input_imp/plugin.cfg", "res://addons/soft_mouse/plugin.cfg")
 
 [input]
 

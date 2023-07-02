@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://84lckq5wlf4v"]
+
+[ext_resource type="Texture2D" uid="uid://bld2etwr7klqa" path="res://addons/soft_mouse/cursors/pointer.png" id="1_1hd8i"]
+[ext_resource type="Script" path="res://addons/soft_mouse/cursors/pointer.gd" id="1_gx4c8"]
+[ext_resource type="AudioStream" uid="uid://b5e0svwcxponu" path="res://addons/soft_mouse/cursors/plastic click.wav" id="3_xdls6"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7rbnd"]
+streams_count = 1
+stream_0/stream = ExtResource("3_xdls6")
+stream_0/weight = 1.0
+
+[node name="pointer" type="Node2D"]
+script = ExtResource("1_gx4c8")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(17, 21)
+texture = ExtResource("1_1hd8i")
+hframes = 2
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7rbnd")
+bus = &"effects"
