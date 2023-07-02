@@ -61,6 +61,7 @@ signal menu_done(result)
 var mouse_clear := false
 func _unhandled_input(event):
 	if animating: return
+	if _IMP.mode != _IMP.RADIAL_MENU: return
 	if not visible: return
 	if (not event is InputEventMouseButton) and (not event.is_action_pressed("ui_cancel")): return
 	if event is InputEventMouseButton:
@@ -68,10 +69,6 @@ func _unhandled_input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP: return
 		if event.button_index == MOUSE_BUTTON_WHEEL_LEFT: return
 		if event.button_index == MOUSE_BUTTON_WHEEL_RIGHT: return
-		if not event.is_pressed(): 
-			mouse_clear = true
-			return
-		elif not mouse_clear: return
 	emit_signal("menu_done", CANCEL)
 	animating = true
 	_IMP.mode = _IMP.TRANSITION

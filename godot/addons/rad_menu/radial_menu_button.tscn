@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://btspqryro2ifl" path="res://addons/rad_menu/sp star.png" id="2_wj5g4"]
 [ext_resource type="FontFile" uid="uid://c1w83040xbexq" path="res://addons/atkinson/Aladin-Regular.ttf" id="3_ara64"]
 [ext_resource type="AudioStream" uid="uid://c3teo7tmmqe4p" path="res://addons/atkinson/button_woosh_stream.tres" id="5_6jtqr"]
-[ext_resource type="AudioStream" uid="uid://b511aquxc6aa7" path="res://addons/atkinson/Get_Orb_01.wav" id="8_jcx2k"]
+[ext_resource type="AudioStream" uid="uid://dtsxq48upiwry" path="res://addons/atkinson/Get_Crystal_03.wav" id="6_pf0wl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvluv"]
 
@@ -264,7 +264,7 @@ volume_db = -10.0
 bus = &"effects"
 
 [node name="click" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_jcx2k")
+stream = ExtResource("6_pf0wl")
 
 [connection signal="focus_entered" from="Button" to="." method="_set_button_hilight"]
 [connection signal="focus_exited" from="Button" to="." method="_set_button_hilight"]
