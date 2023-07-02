@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://c3teo7tmmqe4p"]
+
+[ext_resource type="AudioStream" uid="uid://dhjlt7dh0x1mr" path="res://addons/atkinson/Tiny_Whoosh_01.wav" id="1_bbwda"]
+[ext_resource type="AudioStream" uid="uid://cwuux7ltwemu2" path="res://addons/atkinson/Tiny_Whoosh_02.wav" id="2_l521j"]
+[ext_resource type="AudioStream" uid="uid://dmbm7d3lruqfq" path="res://addons/atkinson/Tiny_Whoosh_03.wav" id="3_4vw6q"]
+
+[resource]
+streams_count = 3
+random_volume_offset_db = 2.0
+stream_0/stream = ExtResource("1_bbwda")
+stream_0/weight = 3.0
+stream_1/stream = ExtResource("2_l521j")
+stream_1/weight = 2.0
+stream_2/stream = ExtResource("3_4vw6q")
+stream_2/weight = 1.0

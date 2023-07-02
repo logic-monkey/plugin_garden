@@ -11,7 +11,6 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_RIGHT: return
 		$sprite.frame = 1
 		if play_click:
-			print("click")
 			play_click = false
 			$click.play()
 	else: 
