@@ -27,6 +27,7 @@ func FadeIn():
 signal scene_changed
 func FadeTo(scene):
 	var tree = get_tree()
+	_IMP.mode = _IMP.TRANSITION
 	FadeOut()
 	await faded_out
 	await tree.process_frame
@@ -34,3 +35,5 @@ func FadeTo(scene):
 	await tree.process_frame
 	emit_signal("scene_changed")
 	FadeIn()
+	await faded_in
+	_IMP.mode = _IMP.WAITING

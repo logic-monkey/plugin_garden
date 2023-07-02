@@ -60,9 +60,12 @@ func set_cb_mode(mode):
 
 
 var pause_cache = false
+var mode_cache = _IMP.WAITING
 @export var time_to_tween = 0.25
 func summon(title := false):
 	%title.visible = not title
+	mode_cache = _IMP.mode
+	_IMP.mode = _IMP.TRANSITION
 	visible = true
 	var tree = get_tree()
 	pause_cache = tree.paused
@@ -72,10 +75,13 @@ func summon(title := false):
 	tween.tween_property($ColorRect,"modulate",Color.WHITE,time_to_tween)\
 			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	%back.grab_focus()
+	await tween.finished
+	_IMP.mode = _IMP.MENU
 	
 signal options_dismissed
 func dismiss():
 	var tree = get_tree()
+	_IMP.mode = _IMP.TRANSITION
 	var tween = create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property($ColorRect,"modulate",Color.TRANSPARENT,time_to_tween)\
@@ -83,6 +89,7 @@ func dismiss():
 	await  tween.finished
 	visible = false
 	tree.paused = pause_cache
+	_IMP.mode = mode_cache
 	emit_signal("options_dismissed")
 
 func _on_back_pressed():

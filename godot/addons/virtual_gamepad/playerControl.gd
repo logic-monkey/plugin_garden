@@ -5,6 +5,7 @@ var vc: VirtualGamepad
 @export var active := true
 func _process(delta):
 	if Engine.is_editor_hint(): return
+	if _IMP.mode != _IMP.EXPLORE: return
 	if not active: return
 	if not vc:
 		for node in owner.get_children():

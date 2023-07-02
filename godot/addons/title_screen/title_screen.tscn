@@ -113,6 +113,7 @@ theme_override_constants/shadow_offset_y = 2
 text = "Random Notes can go here"
 horizontal_alignment = 1
 
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
