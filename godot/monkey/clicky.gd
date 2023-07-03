@@ -8,4 +8,8 @@ func _on_input_event(viewport, event, shape_idx):
 	if not event is InputEventMouseButton: return
 	if not event.is_pressed(): return
 	viewport.set_input_as_handled()
-	_RAD.summon_from(get_global_mouse_position())
+	var position = get_global_mouse_position()
+	var rv = 500
+	while (rv != -1):
+		rv = await _RAD.get_menu_result(position)
+		if rv != -1: position = _RAD.last_button_clicked_position

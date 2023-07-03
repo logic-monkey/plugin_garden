@@ -29,7 +29,8 @@ func _process(delta):
 			Input.is_action_just_pressed("ui_left"):
 		button[3].grab_focus()
 		
-@export var menu_screen_edge_buffer : int = 20
+@export var horizontal_edge_buffer : int = 20
+@export var vertical_edge_buffer : int = 20
 const MENU_HALFWIDTH = 220
 var animating := false
 func summon_from(location:Vector2, buttonry:Dictionary={}):
@@ -40,14 +41,16 @@ func summon_from(location:Vector2, buttonry:Dictionary={}):
 	%menu.position = location
 	var destination = location
 	# Constrain the destination within the viewport
-	if destination.x < MENU_HALFWIDTH + menu_screen_edge_buffer:
-		destination.x = MENU_HALFWIDTH + menu_screen_edge_buffer
-	var max = get_viewport().get_visible_rect().size.x - MENU_HALFWIDTH - menu_screen_edge_buffer
+	if destination.x < MENU_HALFWIDTH + horizontal_edge_buffer:
+		destination.x = MENU_HALFWIDTH + horizontal_edge_buffer
+	var max = get_viewport().get_visible_rect().size.x - MENU_HALFWIDTH - horizontal_edge_buffer
 	if destination.x > max: destination.x = max
-	if destination.y < MENU_HALFWIDTH + menu_screen_edge_buffer:
-		destination.y = MENU_HALFWIDTH + menu_screen_edge_buffer
-	max = get_viewport().get_visible_rect().size.y - MENU_HALFWIDTH - menu_screen_edge_buffer
+	if destination.y < MENU_HALFWIDTH + vertical_edge_buffer:
+		destination.y = MENU_HALFWIDTH + vertical_edge_buffer
+	max = get_viewport().get_visible_rect().size.y - MENU_HALFWIDTH - vertical_edge_buffer
 	if destination.y > max: destination.y = max
+	# Load button data here
+	for b in button: b.enabled = true
 	$AnimationPlayer.play("summon")
 	var tween = create_tween()
 	tween.tween_property(%menu, "position", destination, 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -74,18 +77,32 @@ func _unhandled_input(event):
 	_IMP.mode = _IMP.TRANSITION
 	$AnimationPlayer.play("dismiss")
 	await $AnimationPlayer.animation_finished
+	for b in button: b._set_button_hilight()
 	animating = false
 	if _IMP.mode == _IMP.TRANSITION: _IMP.mode = _IMP.WAITING
-	
+
+var last_button_clicked_position := Vector2(-500,-500)	
 func _on_button_clicked(index):
 	if animating: return
 	if _IMP.mode != _IMP.RADIAL_MENU: return
 	animating = true
 	button[index].play_click()
+	last_button_clicked_position = button[index].global_position
 	emit_signal("menu_done", index)
-	animating = true
 	_IMP.mode = _IMP.TRANSITION
 	$AnimationPlayer.play("dismiss")
 	await $AnimationPlayer.animation_finished
+	for b in button: b._set_button_hilight()
 	animating = false
 	if _IMP.mode == _IMP.TRANSITION: _IMP.mode = _IMP.WAITING
+
+
+
+func get_menu_result(location:Vector2, buttonry:Dictionary={}) -> int:
+	summon_from(location,buttonry)
+	await menu_done
+	return last_menu_result
+
+var last_menu_result := -1
+func _on_menu_done(result):
+	last_menu_result = result

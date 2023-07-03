@@ -31,9 +31,10 @@ func _set_button_hilight():
 	else:
 		change_focus(false)
 	if not enabled: lit = false
+	if not visible: lit = false
 	if not lit and $AnimationPlayer.current_animation == "gleam":
 		$AnimationPlayer.play("dim")
-		$select.play()
+		if visible: $select.play()
 		emit_signal("got_unlit")
 	if lit and $AnimationPlayer.current_animation == "dim":
 		$AnimationPlayer.play("gleam")

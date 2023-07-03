@@ -77,6 +77,54 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(3, 3)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("menu/button0:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("menu/button1:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("menu/button2:enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("menu/button3:enabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_851l1"]
 length = 0.001
@@ -212,6 +260,54 @@ tracks/10/keys = {
 "update": 0,
 "values": [Vector2(0.9, 0.9)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("menu/button0:enabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("menu/button1:enabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("menu/button2:enabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("menu/button3:enabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pkijf"]
 resource_name = "summon"
@@ -311,6 +407,7 @@ _data = {
 process_mode = 3
 layer = 125
 script = ExtResource("1_cns0w")
+vertical_edge_buffer = 80
 
 [node name="menu" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -319,21 +416,25 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(0, -150)
 scale = Vector2(0.9, 0.9)
+enabled = true
 
 [node name="button1" parent="menu" instance=ExtResource("2_sst60")]
 unique_name_in_owner = true
 position = Vector2(150, 0)
 scale = Vector2(0.9, 0.9)
+enabled = true
 
 [node name="button2" parent="menu" instance=ExtResource("2_sst60")]
 unique_name_in_owner = true
 position = Vector2(0, 150)
 scale = Vector2(0.9, 0.9)
+enabled = true
 
 [node name="button3" parent="menu" instance=ExtResource("2_sst60")]
 unique_name_in_owner = true
 position = Vector2(-150, 0)
 scale = Vector2(0.9, 0.9)
+enabled = true
 
 [node name="display_area" type="ReferenceRect" parent="menu"]
 offset_left = -222.0
@@ -349,6 +450,7 @@ libraries = {
 "": SubResource("AnimationLibrary_8peda")
 }
 
+[connection signal="menu_done" from="." to="." method="_on_menu_done"]
 [connection signal="clicked" from="menu/button0" to="." method="_on_button_clicked" binds= [0]]
 [connection signal="clicked" from="menu/button1" to="." method="_on_button_clicked" binds= [1]]
 [connection signal="clicked" from="menu/button2" to="." method="_on_button_clicked" binds= [2]]
