@@ -1,0 +1,45 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Plugin Garden"
+run/main_scene="res://monkey/test.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="EHE"
+config/icon="res://icon.png"
+
+[autoload]
+
+_INI="*res://addons/init/init.tscn"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=960
+window/size/test_height=540
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/init/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
