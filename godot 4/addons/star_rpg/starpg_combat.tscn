@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgr6gume8bvl8"]
+
+[ext_resource type="Script" path="res://addons/star_rpg/starpg_combat.gd" id="1_vumgi"]
+
+[node name="starpg_combat" type="Node"]
+script = ExtResource("1_vumgi")

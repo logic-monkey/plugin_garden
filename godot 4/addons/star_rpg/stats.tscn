@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm4i31mevjbw7"]
+
+[ext_resource type="Script" path="res://addons/star_rpg/stats.gd" id="1_oogig"]
+
+[node name="stats" type="Node"]
+script = ExtResource("1_oogig")

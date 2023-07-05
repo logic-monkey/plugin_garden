@@ -90,7 +90,7 @@ func _on_button_clicked(index):
 	last_button_clicked_position = button[index].global_position
 	emit_signal("menu_done", index)
 	_IMP.mode = _IMP.TRANSITION
-	$AnimationPlayer.play("dismiss")
+	$AnimationPlayer.play("activate")
 	await $AnimationPlayer.animation_finished
 	for b in button: b._set_button_hilight()
 	animating = false
