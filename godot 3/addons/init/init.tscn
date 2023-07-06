@@ -4,3 +4,4 @@
 
 [node name="_init" type="Node"]
 script = ExtResource( 1 )
+GameID = "plugin 3"

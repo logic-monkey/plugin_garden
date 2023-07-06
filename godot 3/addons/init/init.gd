@@ -2,7 +2,7 @@ extends Node
 
 var data = {}
 export var GameID = "game"
-var FILE = "user://%s init.txt" % GameID
+onready var FILE = "user://%s init.txt" % GameID
 
 const POSITION = "window position"
 const SIZE = "window size"
