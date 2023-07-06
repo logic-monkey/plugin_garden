@@ -12,3 +12,7 @@ func _on_exit_pressed():
 
 func _on_start_pressed():
 	_FADER.FadeTo("res://gameplay.tscn")
+
+
+func _on_credits_pressed():
+	_FADER.FadeTo("res://addons/title_and_credits/credits.tscn")
