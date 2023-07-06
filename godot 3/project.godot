@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/fsm/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://addons/fsm/StateMachine.gd"
+} ]
+_global_script_class_icons={
+"State": "res://addons/fsm/state gear.svg",
+"StateMachine": "res://addons/fsm/fsmgears.svg"
+}
+
 [application]
 
 config/name="Plugin Garden"
@@ -34,7 +50,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/basic_options/plugin.cfg", "res://addons/init/plugin.cfg", "res://addons/input_imp/plugin.cfg", "res://addons/music_box/plugin.cfg", "res://addons/screen_fader/plugin.cfg", "res://addons/theme_b/plugin.cfg", "res://addons/title_and_credits/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/basic_options/plugin.cfg", "res://addons/fsm/plugin.cfg", "res://addons/init/plugin.cfg", "res://addons/input_imp/plugin.cfg", "res://addons/music_box/plugin.cfg", "res://addons/screen_fader/plugin.cfg", "res://addons/theme_b/plugin.cfg", "res://addons/title_and_credits/plugin.cfg" )
 
 [gui]
 
