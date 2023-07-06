@@ -16,3 +16,9 @@ func _on_start_pressed():
 
 func _on_credits_pressed():
 	_FADER.FadeTo("res://addons/title_and_credits/credits.tscn")
+
+
+func _on_options_pressed():
+	_OPT.summon(true)
+	yield(_OPT,"options_done")
+	$"%options".grab_focus()

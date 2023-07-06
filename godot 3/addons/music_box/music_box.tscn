@@ -3,5 +3,6 @@
 [ext_resource path="res://addons/music_box/music_box.gd" type="Script" id=1]
 
 [node name="music_box" type="AudioStreamPlayer"]
+pause_mode = 2
 bus = "music box"
 script = ExtResource( 1 )
