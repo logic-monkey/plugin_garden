@@ -31,7 +31,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/init/plugin.cfg", "res://addons/screen_fader/plugin.cfg", "res://addons/theme_b/plugin.cfg", "res://addons/title_and_credits/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/init/plugin.cfg", "res://addons/music_box/plugin.cfg", "res://addons/screen_fader/plugin.cfg", "res://addons/theme_b/plugin.cfg", "res://addons/title_and_credits/plugin.cfg" )
 
 [gui]
 
