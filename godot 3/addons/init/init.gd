@@ -11,8 +11,8 @@ const FULLSCREEN = "game fullscreen"
 
 func Save():
 	data[MAXIMIZED] = OS.window_maximized
-	if not data[MAXIMIZED] or \
-			(FULLSCREEN in data and not data[FULLSCREEN]):
+	if not data[MAXIMIZED] and \
+			(not FULLSCREEN in data or not data[FULLSCREEN]):
 		data[SIZE] = OS.window_size
 		data[POSITION] = OS.window_position
 	var file = File.new()
@@ -54,8 +54,13 @@ func _ready():
 	Load()
 	if not is_loaded: yield(self, "loaded")
 	Save()
+	get_viewport().connect("size_changed", self, "_on_vp_resize")
 	
 func _notification(what):
 	if what == NOTIFICATION_WM_QUIT_REQUEST:
 		if not is_loaded: yield(self, "loaded")
 		Save()
+
+func _on_vp_resize():
+	if not is_loaded: yield(self, "loaded")
+	Save()

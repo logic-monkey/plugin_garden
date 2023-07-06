@@ -39,7 +39,7 @@ func _on_back_pressed():
 func _on_title_pressed():
 	dismiss()
 	yield(self, "options_done")
-	_FADER.FadeTo("res://addons/title_and_credits/title_screen.tscn")
+	_FADER.FadeTo("res://addons/pixel_art/pixel_title.tscn")
 	
 
 func _on_exit_pressed():

@@ -1,0 +1,1 @@
+A possible good pixel art resolution for itch.io is 512x288. This is 1/3 1920x1280, and the double-size, 1024x576 easily fits in itch.io's recommended size.

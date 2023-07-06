@@ -18,11 +18,11 @@ func _ready():
 	else:
 		$"%master_volume".value = 50
 	if FX in _INI.data:
-		$"%effects_volume".value = _INI.data[MASTER] * 100
+		$"%effects_volume".value = _INI.data[FX] * 100
 	else:
 		$"%effects_volume".value = 100
 	if MUSIC in _INI.data:
-		$"%music_volume".value = _INI.data[MASTER] * 100
+		$"%music_volume".value = _INI.data[MUSIC] * 100
 	else:
 		$"%music_volume".value = 100
 	if FULLSCREEN in _INI.data:

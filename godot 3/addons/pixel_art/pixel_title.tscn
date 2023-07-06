@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/pixel_art/pixel.theme" type="Theme" id=1]
+[ext_resource path="res://addons/title_and_credits/title_screen.gd" type="Script" id=2]
+
+[node name="pixel_title" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 492.0
+margin_bottom = 268.0
+alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 492.0
+margin_bottom = 126.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="start" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 233.0
+margin_top = 130.0
+margin_right = 258.0
+margin_bottom = 145.0
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="load" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_left = 233.0
+margin_top = 168.0
+margin_right = 258.0
+margin_bottom = 183.0
+size_flags_horizontal = 4
+text = "Load"
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 229.0
+margin_top = 149.0
+margin_right = 263.0
+margin_bottom = 164.0
+size_flags_horizontal = 4
+text = "Options"
+
+[node name="credits" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 229.0
+margin_top = 168.0
+margin_right = 262.0
+margin_bottom = 183.0
+size_flags_horizontal = 4
+text = "Credits"
+
+[node name="exit" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_left = 236.0
+margin_top = 187.0
+margin_right = 255.0
+margin_bottom = 202.0
+size_flags_horizontal = 4
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
