@@ -11,8 +11,8 @@ const FULLSCREEN = "game fullscreen"
 
 func Save():
 	data[MAXIMIZED] = OS.window_maximized
-	if not data[MAXIMIZED] and \
-			(not FULLSCREEN in data and not data[FULLSCREEN]):
+	if not data[MAXIMIZED] or \
+			(FULLSCREEN in data and not data[FULLSCREEN]):
 		data[SIZE] = OS.window_size
 		data[POSITION] = OS.window_position
 	var file = File.new()
