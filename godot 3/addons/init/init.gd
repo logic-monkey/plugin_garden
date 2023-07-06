@@ -7,11 +7,14 @@ onready var FILE = "user://%s init.txt" % GameID
 const POSITION = "window position"
 const SIZE = "window size"
 const  MAXIMIZED = "window maximized"
+const FULLSCREEN = "game fullscreen"
 
 func Save():
 	data[MAXIMIZED] = OS.window_maximized
-	if not data[MAXIMIZED]: data[SIZE] = OS.window_size
-	if not data[MAXIMIZED]: data[POSITION] = OS.window_position
+	if not data[MAXIMIZED] and \
+			(not FULLSCREEN in data and not data[FULLSCREEN]):
+		data[SIZE] = OS.window_size
+		data[POSITION] = OS.window_position
 	var file = File.new()
 	file.open(FILE, File.WRITE)
 	file.store_string(var2str(data))
